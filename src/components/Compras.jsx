@@ -1,9 +1,16 @@
 import React from "react"
 
-const Compras = ({ addCard, setCompras }) => {
+const Compras = ({ addCard, setCompras, setAddCard }) => {
   const reducer = (accumalator, currentValue) =>
     accumalator + currentValue.precio
   const sum = addCard.reduce(reducer, 0)
+
+  const removerCompra = (payload) => {
+    setAddCard([
+      ...addCard,
+      addCard.filter((item) => item.idDrink !== payload.idDrink),
+    ])
+  }
 
   return (
     <div className='pt-5 pb-20 w-[28rem] bg-slate-500 absolute top-0 right-0 rounded-xl'>
@@ -26,7 +33,7 @@ const Compras = ({ addCard, setCompras }) => {
             {addCard.map((data) => (
               <div key={data.idDrink} className='flex flex-col'>
                 <div className='bg-slate-700  rounded-2xl'>
-                  <div className='flex flex-row  items-center justify-between p-4 '>
+                  <div className='flex flex-row  items-center justify-between p-4  px-8'>
                     <img
                       className='w-20 h-20 rounded-xl'
                       src={data.strDrinkThumb}
@@ -42,12 +49,12 @@ const Compras = ({ addCard, setCompras }) => {
                         $/.{data.precio}
                       </p>
                     </div>
-                    <button
+                    {/* <button
                       type='button'
                       className='px-5 py-1 rounded-full bg-white'
                     >
                       X
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
