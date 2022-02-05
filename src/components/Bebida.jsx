@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const Bebida = ({ data, addTocard }) => {
+  const [click, setClick] = useState(false)
+
   const aleatorio = (min, max) => {
     const resultado = Math.floor(Math.random() * (max - min + 1) + min)
     return resultado
@@ -13,6 +15,7 @@ const Bebida = ({ data, addTocard }) => {
   const handleClick = (e) => {
     e.preventDefault()
     addTocard({ ...data, precio: precioRef.current })
+    setClick(true)
   }
 
   return (
@@ -28,6 +31,7 @@ const Bebida = ({ data, addTocard }) => {
           </p>
         </div>
         <button
+          disabled={click ? true : false}
           type='button'
           className='px-5 py-1 rounded-full bg-white'
           onClick={handleClick}
