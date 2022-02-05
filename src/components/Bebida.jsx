@@ -33,7 +33,9 @@ const Bebida = ({ data, addTocard }) => {
         <button
           disabled={click ? true : false}
           type='button'
-          className='px-5 py-1 rounded-full bg-white'
+          className={`px-5 py-1 rounded-full ${
+            click ? "text-white" : "text-slate-900"
+          }  ${click ? "bg-slate-900" : "bg-white"}`}
           onClick={handleClick}
         >
           Añadir al carrito
