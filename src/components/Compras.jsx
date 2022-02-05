@@ -10,7 +10,7 @@ const Compras = ({ addCard, setCompras, setAddCard }) => {
     setAddCard(addCard.filter((item) => item.idDrink !== data.idDrink))
   }
   return (
-    <div className='pt-5 pb-20 w-[28rem] bg-slate-500 absolute top-0 right-0 rounded-xl'>
+    <div className='pt-5 pb-20 w-full md:w-[28rem] bg-slate-500 absolute top-0 right-0 rounded-xl  h-full flex-1'>
       <div className='justify-between pl-28 pr-2 flex pb-5'>
         <label className='text-2xl font-extrabold text-white '>
           Mis Ordenes
