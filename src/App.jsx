@@ -59,6 +59,7 @@ const App = () => {
             key={addCard.idDrink}
             addCard={addCard}
             setCompras={setCompras}
+            setAddCard={setAddCard}
           />
         )}
       </div>
